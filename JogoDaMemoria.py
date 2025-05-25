@@ -22,10 +22,13 @@ if st.session_state.etapa == "inicio":
 # Mostrar palavras por 5 segundos
 elif st.session_state.etapa == "mostrando":
     st.write("Memorize essas palavras:")
-    st.write(" | ".join(st.session_state.palavras_exibidas))
+    placeholder = st.empty()
+    placeholder.write(" | ".join(st.session_state.palavras_exibidas))
     time.sleep(5)
+    placeholder.empty()
     st.session_state.etapa = "responder"
     st.rerun()
+
 
 # Esconder e pedir resposta
 elif st.session_state.etapa == "responder":
